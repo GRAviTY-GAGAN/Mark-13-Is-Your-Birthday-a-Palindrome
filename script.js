@@ -165,3 +165,35 @@ var date = {
 // console.log(getNextDate(date));
 
 console.log(getNextPalindromeDate(date));
+
+
+var dateInputRef = document.querySelector('#bday-input');
+var showBtnRef = document.querySelector('#show-btn');
+var resultRef = document.querySelector('#result');
+
+
+function clickHandler(){
+    var bdayStr = dateInputRef.value;
+
+
+
+    if(bdayStr !== ""){
+        var listOfDate = bdayStr.split('-');
+        var date = {
+            day: Number(listOfDate[2]),
+            month: Number(listOfDate[1]),
+            year: Number(listOfDate[0])
+        };
+
+        var isPalindrome = checkPalindromeForAllDateFormats(date);
+        if(isPalindrome){
+            resultRef.innerText = 'Yay! your birthday is a palindrome!! 🥳🥳'
+        } else {
+            var [ctr, nextDate] = getNextPalindromeDate(date);
+            resultRef.innerText = `The next palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year}, you missed it by ${ctr} days! 😔`
+        }
+    }
+}
+
+
+showBtnRef.addEventListener("click", clickHandler);

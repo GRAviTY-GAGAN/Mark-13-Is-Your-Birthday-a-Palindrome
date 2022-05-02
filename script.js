@@ -93,7 +93,7 @@ function getNextDate(date){
     if(month === 2) { // check for leap year
         if(isLeapYear(year)) {
             if(day > 29) {
-                day =1;
+                day = 1;
                 month++;  //increament the month
             }
         } else {
@@ -126,6 +126,8 @@ function getNextDate(date){
     };
 }
 
+
+// get next palindrome date
 function getNextPalindromeDate(date) {
     var ctr = 0;
     var nextDate = getNextDate(date);
@@ -143,12 +145,23 @@ function getNextPalindromeDate(date) {
 }
 
 
+
+
+
+
+
 var date = {
-    day: 31,
-    month: 12,
-    year: 2020
+    day: 8,
+    month: 8,
+    year: 2021
 };
 
+
+//check dry run for console.log(getNextDate(date)); for these dates: 15 aug 2021, 28 feb 2020, 31 dec 2020
+
+// using getNextDate and isLeapYear function we have built our getNextPalindromeDate function
+
+// console.log(getNextPalindromeDate(date));
+// console.log(getNextDate(date));
+
 console.log(getNextPalindromeDate(date));
-
-
